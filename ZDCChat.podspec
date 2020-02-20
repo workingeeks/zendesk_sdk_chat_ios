@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, '9.3'
     s.requires_arc = true
 
-    s.default_subspecs = 'UI', 'API', 'Localization'
+    s.default_subspecs = 'UI', 'API'
 
     s.subspec 'UI' do |ss|
         ss.ios.vendored_frameworks = 'ZDCChat.framework'
@@ -32,10 +32,6 @@ Pod::Spec.new do |s|
         ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
         ss.resources = ["ZDCChat.bundle"]
         ss.dependency 'ZDCChat/API'
-    end
-
-    s.subspec 'Localization' do |ss|
-        ss.resources = ["ZDCChatStrings.bundle"]
     end
 
     s.subspec 'API' do |ss|
